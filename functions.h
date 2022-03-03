@@ -84,7 +84,7 @@ void pontos (char tabuleiro[10][10],int linha,int coluna,int *pontos,string *MSG
             }
 }
 
-void jogo(){
+void jogo(string nome){
 
     char tabuleiro[10][10]; char mascara[10][10];
 
@@ -108,7 +108,7 @@ void jogo(){
         cout << "\nTentativas restantes: " << max_tentativas-tentativas << "\n";
         cout << "\nPontos : " << pontuacao << "\n";
         cout << MSG << "\n";
-        cout << "\nDigite uma Linha: ";
+        cout <<"\n"<< nome <<"\nDigite uma Linha: ";
         cin >> linha;
         cout << "\nDigite uma Coluna: ";
         cin >> coluna;
@@ -130,7 +130,7 @@ void jogo(){
 
     switch (opcao){
     case 1:
-        jogo();
+        jogo(nome);
         break;
     case 2:
         menuInicial();
@@ -141,6 +141,7 @@ void jogo(){
 
 void menuInicial() {
     int opcao = 0;
+    string nome = "";
     while (opcao < 1 || opcao > 3) {
         limparTela();
         cout << "Bem vindo ao jogo da forca!\n";
@@ -153,9 +154,11 @@ void menuInicial() {
 
         switch (opcao) {
         case 1:
+             cout << "Digite seu nome: ";
+            cin >> nome;
             limparTela();
             cout << "Jogo iniciado! \n\n";
-            jogo();
+            jogo(nome);
             break;
         case 2:
             limparTela();

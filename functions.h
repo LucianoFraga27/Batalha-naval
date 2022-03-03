@@ -19,9 +19,27 @@ void exibe_tabuleiro (char tabuleiro[10][10],char mascara[10][10]) {
     for(int i = 0; i < 10 ; i++){
         for(int j = 0; j < 10; j++){
            cout << mascara[i][j] << " ";
+
         }
         cout << "\n";
     }
+        cout << "\n\n";
+        for(int i = 0; i < 10 ; i++){
+        for(int j = 0; j < 10; j++){
+           cout << tabuleiro[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+void posiciona_barcos(char tabuleiro[10][10]) {
+
+    int qtd = 10;
+    for (int i = 0; i < qtd; i++){
+            tabuleiro[rand()%10][rand()%10] = 'P';
+    }
+
+
 }
 
 void jogo(){
@@ -29,7 +47,8 @@ void jogo(){
     char tabuleiro[10][10]; char mascara[10][10];
 
     inicia_tabuleiro(tabuleiro,mascara);
-    exibe_tabuleiro(tabuleiro,mascara);
+
+    posiciona_barcos(tabuleiro);
 
     int linha,coluna;
     int estado_do_jogo = 1 ;                        // 1 = andamento , 0 = fim do jogo

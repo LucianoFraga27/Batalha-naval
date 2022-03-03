@@ -19,7 +19,6 @@ void exibe_tabuleiro (char tabuleiro[10][10],char mascara[10][10]) {
     for(int i = 0; i < 10 ; i++){
         for(int j = 0; j < 10; j++){
            cout << mascara[i][j] << " ";
-
         }
         cout << "\n";
     }
@@ -35,11 +34,16 @@ void exibe_tabuleiro (char tabuleiro[10][10],char mascara[10][10]) {
 void posiciona_barcos(char tabuleiro[10][10]) {
 
     int qtd = 10;
-    for (int i = 0; i < qtd; i++){
-            tabuleiro[rand()%10][rand()%10] = 'P';
-    }
+    int qtd_barcos = 0;
 
+        while (qtd_barcos < qtd ) {
+            int linha = rand()%10; int coluna = rand()%10;
 
+                if(tabuleiro[linha][coluna] == 'A'){
+                    tabuleiro[linha][coluna] = 'P';
+                    qtd_barcos ++;
+                }
+        }
 }
 
 void jogo(){
@@ -52,7 +56,6 @@ void jogo(){
 
     int linha,coluna;
     int estado_do_jogo = 1 ;                        // 1 = andamento , 0 = fim do jogo
-
 
     while (estado_do_jogo == 1){
 

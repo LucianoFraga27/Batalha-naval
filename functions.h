@@ -2,6 +2,7 @@
 void limparTela() {
     system("cls");
 }
+void menuInicial();
 
 void inicia_tabuleiro (char tabuleiro[10][10],char mascara[10][10]) {
 
@@ -95,12 +96,16 @@ void jogo(){
     int estado_do_jogo = 1 ;                        // 1 = andamento , 0 = fim do jogo
     int pontuacao = 0;
     string MSG = "";
+    int tentativas = 0;
+    int max_tentativas = 3;
+    int opcao;
 
-    while (estado_do_jogo == 1){
+    while (tentativas < max_tentativas){
 
         limparTela();
 
         exibe_tabuleiro(tabuleiro,mascara);
+        cout << "\nTentativas restantes: " << max_tentativas-tentativas << "\n";
         cout << "\nPontos : " << pontuacao << "\n";
         cout << MSG << "\n";
         cout << "\nDigite uma Linha: ";
@@ -113,7 +118,24 @@ void jogo(){
         //revela a poição no tabuleiro
         mascara[linha][coluna] = tabuleiro[linha][coluna];
 
+        tentativas++;
     }
+    limparTela();
+    cout << "\nFim de jogo \n";
+    cout << "Deseja reiniciar ou sair? \n";
+    cout << "1 - jogar novamente \n";
+    cout << "2 - ir para Menu \n";
+    cout << "3 - Sair \n";
+    cin >> opcao;
+
+    switch (opcao){
+    case 1:
+        jogo();
+        break;
+    case 2:
+        menuInicial();
+        break;
+        }
 
 }
 

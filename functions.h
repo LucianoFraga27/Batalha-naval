@@ -17,6 +17,7 @@ void inicia_tabuleiro (char tabuleiro[10][10],char mascara[10][10]) {
 
 void exibe_tabuleiro (char tabuleiro[10][10],char mascara[10][10]) {
 
+
     for (int i = 0; i < 10; i++){
         if(i == 0){
             cout << "  ";
